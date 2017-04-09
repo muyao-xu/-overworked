@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load Charts and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Draw the pie chart for Sarah's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(drawSarahChart);
+
+      // Draw the bar chart for the Anthony's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(drawAnthonyChart);
+
+      // Draw the bar chart for the Bob's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(drawBobChart);
+
+      // Callback that draws the pie chart for Sarah's pizza.
+      function drawSarahChart() {
+
+        // Create the data table for Sarah's pizza.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Day');
+        data.addColumn('number', 'Hours');
+        data.addRows([
+          ['Monday', 5],
+          ['Tuesday', 6],
+          ['Wednesday', 4],
+          ['Thursday', 10],
+          ['Friday', 2],
+          ['Saturday', 1],
+          ['Sunday', 0]
+        ]);
+
+        // Set options for Sarah's pie chart.
+        var options = {title:'How Much Time Did You Spend on Dating with Computer Last Week?',
+                       width:400,
+                       height:300};
+
+        // Instantiate and draw the chart for Sarah's pizza.
+        var chart = new google.visualization.PieChart(document.getElementById('Sarah_chart_div'));
+        chart.draw(data, options);
+      }
+
+      // Callback that draws the pie chart for Anthony's pizza.
+      function drawAnthonyChart() {
+
+        // Create the data table for Anthony's pizza.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Day');
+        data.addColumn('number', 'times');
+        data.addRows([
+          ['Monday', 1],
+          ['Tuesday', 0],
+          ['Wednesday', 0],
+          ['Thursday', 3],
+          ['Friday', 0],
+          ['Saturday', 0],
+          ['Sunday', 0],
+        ]);
+
+        // Set options for Anthony's pie chart.
+        var options = {title:'How Many Times Did You Decide to Stay with Your Computer Against the Whole World?',
+                       width:400,
+                       height:300};
+
+        // Instantiate and draw the chart for Anthony's pizza.
+        var chart = new google.visualization.BarChart(document.getElementById('Anthony_chart_div'));
+        chart.draw(data, options);
+      }
+
+      // Callback that draws the bar chart for Bob's pizza.
+      function drawBobChart() {
+
+        // Create the data table for Sarah's pizza.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Day');
+        data.addColumn('number', 'Emotion');
+        data.addRows([
+          ['Monday', 0.3],
+          ['Tuesday', 0.5],
+          ['Wednesday', 0.5],
+          ['Thursday', 0.1],
+          ['Friday', 0.9],
+          ['Saturday', 1],
+          ['Sunday', 1]
+        ]);
+
+        // Set options for Sarah's pie chart.
+        var options = {title:'What Is Your Average Emotion Score? (0--1, negative--positive)',
+                       width:450,
+                       height:300};
+
+        // Instantiate and draw the chart for Sarah's pizza.
+        var chart = new google.visualization.BarChart(document.getElementById('Bob_chart_div'));
+        chart.draw(data, options);
+     }
+    </script>
+  </head>
+  <body>
+    <!--Table and divs that hold the pie charts-->
+    <table class="columns">
+      <tr>
+        <td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
+        <td><div id="Anthony_chart_div" style="border: 1px solid #ccc"></div></td>
+        <td><div id="Bob_chart_div" style="border: 1px solid #ccc"></div></td>
+      </tr>
+    </table>
+  </body>
+</html>
